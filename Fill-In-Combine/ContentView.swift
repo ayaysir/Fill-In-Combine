@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 /*
  X:1
@@ -33,6 +34,8 @@ struct ContentView: View {
     
     @State var counter_8beat: Int = 0
     
+    @State var subscriptions = Set<AnyCancellable>()
+    
     var body: some View {
         VStack {
             HStack(alignment: .center, spacing: 0) {
@@ -51,7 +54,9 @@ struct ContentView: View {
             .frame(height: 300)
         }
         .onAppear {
-            CustomFont.viewFontList()
+            // CustomFont.viewFontList()
+            // metronome()
+            metronomeCombine(bpm: 124)
         }
     }
     
@@ -66,6 +71,19 @@ struct ContentView: View {
     
     func metronomeCombine(bpm: CGFloat = 72.0, bpb: Int = 4) {
         
+        let sleep: CGFloat = 60.0 / bpm
+        let timerPublisher = Timer.publish(every: sleep / 2.0, tolerance: 0.01, on: .main, in: .default)
+        
+        // 1회는 무조건 실행해야됨
+        print("S")
+        
+        timerPublisher
+            .autoconnect()
+            .sink { _ in
+                counter_8beat += 1
+                print(counter_8beat % (bpb * 2) == 0 ? "T" : counter_8beat % 2 == 0 ? "t" : ".", terminator: "")
+            }
+            .store(in: &subscriptions)
     }
 }
 
