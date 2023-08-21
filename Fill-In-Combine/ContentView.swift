@@ -34,10 +34,25 @@ struct ContentView: View {
     @State var counter_8beat: Int = 0
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .onAppear {
-                metronome(bpm: 172, bpb: 4)
+        VStack {
+            HStack(alignment: .center, spacing: 0) {
+                LEDIndicator(fillColor: .red)
+                    .frame(width: 100)
+                Rectangle()
+                    .foregroundColor(.gray)
+                LEDIndicator(fillColor: .blue)
+                    .frame(width: 100)
             }
+            HStack {
+                KnobsPanel()
+                Rectangle()
+                ArcKnob("TEMPO", value: .constant(1.0), useMusisyncFontForLabel:  false)
+            }
+            .frame(height: 300)
+        }
+        .onAppear {
+            CustomFont.viewFontList()
+        }
     }
     
     func metronome(bpm: CGFloat = 72.0, bpb: Int = 4) {
@@ -48,13 +63,16 @@ struct ContentView: View {
             print(counter_8beat % (bpb * 2) == 0 ? "T" : counter_8beat % 2 == 0 ? "t" : ".", terminator: "")
         }
     }
+    
+    func metronomeCombine(bpm: CGFloat = 72.0, bpb: Int = 4) {
+        
+    }
 }
 
 @available(iOS 15.0, *)
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewInterfaceOrientation(.landscapeRight)
             .previewDevice("iPad (10th generation)")
     }
 }
