@@ -41,6 +41,7 @@
 		44470FD22A949C7400DFE965 /* Woodblock_Big.aif in Resources */ = {isa = PBXBuildFile; fileRef = 44470FD02A949C7400DFE965 /* Woodblock_Big.aif */; };
 		44470FD42A949D1000DFE965 /* SoundConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44470FD32A949D1000DFE965 /* SoundConductor.swift */; };
 		44470FDA2A94F2B800DFE965 /* Starling in Frameworks */ = {isa = PBXBuildFile; productRef = 44470FD92A94F2B800DFE965 /* Starling */; };
+		44470FDC2A94FF2700DFE965 /* 7 Segment.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44470FDB2A94FF2600DFE965 /* 7 Segment.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		44470FCF2A949C7400DFE965 /* Woodblock_Small.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Woodblock_Small.aif; sourceTree = "<group>"; };
 		44470FD02A949C7400DFE965 /* Woodblock_Big.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Woodblock_Big.aif; sourceTree = "<group>"; };
 		44470FD32A949D1000DFE965 /* SoundConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundConductor.swift; sourceTree = "<group>"; };
+		44470FDB2A94FF2600DFE965 /* 7 Segment.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "7 Segment.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 			children = (
 				44470FC52A93C0C700DFE965 /* Musiqwik.ttf */,
 				44470FCA2A93C81400DFE965 /* Musisync.ttf */,
+				44470FDB2A94FF2600DFE965 /* 7 Segment.ttf */,
 				44470FD02A949C7400DFE965 /* Woodblock_Big.aif */,
 				44470FCF2A949C7400DFE965 /* Woodblock_Small.aif */,
 			);
@@ -371,6 +374,7 @@
 				44470FC62A93C0C700DFE965 /* Musiqwik.ttf in Resources */,
 				44470FD22A949C7400DFE965 /* Woodblock_Big.aif in Resources */,
 				44470F5C2A93385D00DFE965 /* Assets.xcassets in Resources */,
+				44470FDC2A94FF2700DFE965 /* 7 Segment.ttf in Resources */,
 				44470FD12A949C7400DFE965 /* Woodblock_Small.aif in Resources */,
 				44470FCB2A93C9D600DFE965 /* Musisync.ttf in Resources */,
 			);

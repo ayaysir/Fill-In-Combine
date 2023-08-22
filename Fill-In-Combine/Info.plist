@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>7 Segment.ttf</string>
 		<string>Musiqwik.ttf</string>
 		<string>Musisync.ttf</string>
 	</array>

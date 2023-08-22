@@ -63,14 +63,25 @@ struct ContentView: View {
             }
             HStack {
                 KnobsPanel(viewModel: knobsPanelViewModel)
-                VStack {
-                    Rectangle()
-                    Button {
-                        isStart.toggle()
-                    } label: {
-                        Text("Start / Stop")
+                VStack(spacing: 0) {
+                    ZStack {
+                        Rectangle()
+                            .fill(Color(red: 0.435, green: 0, blue: 1))
+                        Text("\(Int(bpm))")
+                            .font(.custom(CustomFont.sevenSegement.rawValue, size: 160))
                     }
-
+                    ZStack {
+                        Rectangle()
+                            .fill(.pink)
+                        Button {
+                            isStart.toggle()
+                        } label: {
+                            Text("Start / Stop")
+                        }
+                        .foregroundColor(.white)
+                    }
+                    
+                    .frame(height: 50)
                 }
                 ArcKnob("BPM", value: $bpm, range: 40...210, useMusisyncFontForLabel: false)
             }
@@ -112,7 +123,7 @@ struct ContentView: View {
             metronomeConductor.changeTo(bpm: floor(bpm))
         }
         .onReceive(knobsPanelViewModel.$values) { values in
-            print("onReceive:", values)
+            // 앱 실행되었을 때도 값을 받아옴
             soundConductor.setVolume(.whole, to: values.wholeVolume)
             soundConductor.setVolume(.quarter, to: values.quarterVolume)
             soundConductor.setVolume(.eighth, to: values.eighthVolume)
