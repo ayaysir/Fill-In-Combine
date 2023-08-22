@@ -44,6 +44,8 @@ public struct XYPad: View {
 
                         cx.fill(ind, with: .color(foregroundColor))
                     }
+                } else {
+                    EmptyView()
                 }
             }.padding(indicatorSize.height * indicatorPadding)
         }

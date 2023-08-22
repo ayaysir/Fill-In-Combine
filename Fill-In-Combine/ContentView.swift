@@ -32,59 +32,95 @@ import Combine
 
 struct ContentView: View {
     
-    @State var counter_8beat: Int = 0
+    let primaryLEDColor: Color = .init(red: 1.0, green: 0, blue: 0)
+    let subLEDColor: Color = .init(red: 0.3, green: 0.1, blue: 0.6)
     
+    @State var counter_8beat: Int = 0
     @State var subscriptions = Set<AnyCancellable>()
+    @State var bpm: Float = 90.0
+    private let bpmPublisher = PassthroughSubject<Float, Never>()
+    
+    @State var beatPerBar: Int = 4
+    @StateObject var metronomeConductor: MetronomeConductor = MetronomeConductor()
+    let soundConductor = SoundConductor()
+
+    @State var isStart: Bool = false
+    @State var isLeftLedOn: Bool = true
+    @State var isRightLedOn: Bool = false
+    @State var leftFillColor: Color = .init(red: 0.3, green: 0.1, blue: 0.6)
     
     var body: some View {
         VStack {
             HStack(alignment: .center, spacing: 0) {
-                LEDIndicator(fillColor: .red)
+                LEDIndicator(fillColor: $leftFillColor, isOn: $isLeftLedOn)
                     .frame(width: 100)
+                    // .animation(.easeInOut(duration: 0.1))
                 Rectangle()
                     .foregroundColor(.gray)
-                LEDIndicator(fillColor: .blue)
+                LEDIndicator(fillColor: .constant(subLEDColor), isOn: $isRightLedOn)
                     .frame(width: 100)
             }
             HStack {
                 KnobsPanel()
-                Rectangle()
-                ArcKnob("TEMPO", value: .constant(1.0), useMusisyncFontForLabel:  false)
+                VStack {
+                    Rectangle()
+                    Button {
+                        isStart.toggle()
+                    } label: {
+                        Text("Start / Stop")
+                    }
+
+                }
+                ArcKnob("BPM", value: $bpm, range: 40...210, useMusisyncFontForLabel: false)
             }
             .frame(height: 300)
         }
         .onAppear {
-            // CustomFont.viewFontList()
-            // metronome()
-            metronomeCombine(bpm: 124)
+            metronomeConductor.setTo(bpm: bpm, beatPerBar: beatPerBar)
         }
-    }
-    
-    func metronome(bpm: CGFloat = 72.0, bpb: Int = 4) {
-        let sleep: CGFloat = 60.0 / bpm
-        print("T", terminator: "")
-        Timer.scheduledTimer(withTimeInterval: sleep / 2.0, repeats: true) { timer in
-            self.counter_8beat += 1
-            print(counter_8beat % (bpb * 2) == 0 ? "T" : counter_8beat % 2 == 0 ? "t" : ".", terminator: "")
-        }
-    }
-    
-    func metronomeCombine(bpm: CGFloat = 72.0, bpb: Int = 4) {
-        
-        let sleep: CGFloat = 60.0 / bpm
-        let timerPublisher = Timer.publish(every: sleep / 2.0, tolerance: 0.01, on: .main, in: .default)
-        
-        // 1회는 무조건 실행해야됨
-        print("S")
-        
-        timerPublisher
-            .autoconnect()
-            .sink { _ in
-                counter_8beat += 1
-                print(counter_8beat % (bpb * 2) == 0 ? "T" : counter_8beat % 2 == 0 ? "t" : ".", terminator: "")
+        .onChange(of: isStart) { isStart in
+            if isStart {
+                metronomeConductor.start()
+            } else {
+                metronomeConductor.stop()
+                // soundConductor.stopAll()
             }
-            .store(in: &subscriptions)
+        }
+        .onChange(of: metronomeConductor.state) { state in
+            guard isStart else {
+                return
+            }
+            
+            soundConductor.playTick(state)
+            
+            switch state {
+            case .whole:
+                toggleLEDTurn(true, isWhole: true)
+            case .quarter:
+                toggleLEDTurn()
+            case .eighth:
+                break
+            case .none:
+                break
+            }
+        }
+        .onChange(of: bpm) { bpm in
+            bpmPublisher.send(bpm)
+        }
+        .onReceive(bpmPublisher.debounce(for: .milliseconds(500), scheduler: RunLoop.main)) { debouncedBPM in
+            self.bpm = debouncedBPM
+            
+            // soundConductor.stopAll()
+            metronomeConductor.changeTo(bpm: floor(bpm))
+        }
     }
+    
+    private func toggleLEDTurn(_ isLeftShouldOn: Bool = false, isWhole: Bool = false) {
+        leftFillColor = isWhole ? primaryLEDColor : subLEDColor
+        isLeftLedOn = isLeftShouldOn ? true : !isLeftLedOn
+        isRightLedOn = !isLeftLedOn
+    }
+    
 }
 
 @available(iOS 15.0, *)

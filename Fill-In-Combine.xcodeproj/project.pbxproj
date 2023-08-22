@@ -36,6 +36,11 @@
 		44470FC62A93C0C700DFE965 /* Musiqwik.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44470FC52A93C0C700DFE965 /* Musiqwik.ttf */; };
 		44470FC92A93C1E600DFE965 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44470FC82A93C1E600DFE965 /* Constants.swift */; };
 		44470FCB2A93C9D600DFE965 /* Musisync.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44470FCA2A93C81400DFE965 /* Musisync.ttf */; };
+		44470FCE2A947C5900DFE965 /* MetronomeConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44470FCD2A947C5900DFE965 /* MetronomeConductor.swift */; };
+		44470FD12A949C7400DFE965 /* Woodblock_Small.aif in Resources */ = {isa = PBXBuildFile; fileRef = 44470FCF2A949C7400DFE965 /* Woodblock_Small.aif */; };
+		44470FD22A949C7400DFE965 /* Woodblock_Big.aif in Resources */ = {isa = PBXBuildFile; fileRef = 44470FD02A949C7400DFE965 /* Woodblock_Big.aif */; };
+		44470FD42A949D1000DFE965 /* SoundConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44470FD32A949D1000DFE965 /* SoundConductor.swift */; };
+		44470FDA2A94F2B800DFE965 /* Starling in Frameworks */ = {isa = PBXBuildFile; productRef = 44470FD92A94F2B800DFE965 /* Starling */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +94,10 @@
 		44470FC72A93C0FF00DFE965 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		44470FC82A93C1E600DFE965 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		44470FCA2A93C81400DFE965 /* Musisync.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Musisync.ttf; sourceTree = "<group>"; };
+		44470FCD2A947C5900DFE965 /* MetronomeConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeConductor.swift; sourceTree = "<group>"; };
+		44470FCF2A949C7400DFE965 /* Woodblock_Small.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Woodblock_Small.aif; sourceTree = "<group>"; };
+		44470FD02A949C7400DFE965 /* Woodblock_Big.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Woodblock_Big.aif; sourceTree = "<group>"; };
+		44470FD32A949D1000DFE965 /* SoundConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundConductor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44470FDA2A94F2B800DFE965 /* Starling in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,14 +149,15 @@
 		44470F562A93385C00DFE965 /* Fill-In-Combine */ = {
 			isa = PBXGroup;
 			children = (
+				44470FCC2A947C4000DFE965 /* Conductor */,
 				44470FC82A93C1E600DFE965 /* Constants.swift */,
 				44470FC72A93C0FF00DFE965 /* Info.plist */,
 				44470FC42A93C0B700DFE965 /* Resource */,
 				44470FA32A93BDCF00DFE965 /* Controls */,
 				44470F9B2A93BA0A00DFE965 /* ViewComponent */,
 				44470F9A2A93B9EC00DFE965 /* CoreData */,
-				44470F572A93385C00DFE965 /* Fill_In_CombineApp.swift */,
 				44470F5B2A93385D00DFE965 /* Assets.xcassets */,
+				44470F572A93385C00DFE965 /* Fill_In_CombineApp.swift */,
 				44470F5D2A93385D00DFE965 /* Preview Content */,
 				44470F8C2A933C8300DFE965 /* ContentView.swift */,
 			);
@@ -231,8 +242,19 @@
 			children = (
 				44470FC52A93C0C700DFE965 /* Musiqwik.ttf */,
 				44470FCA2A93C81400DFE965 /* Musisync.ttf */,
+				44470FD02A949C7400DFE965 /* Woodblock_Big.aif */,
+				44470FCF2A949C7400DFE965 /* Woodblock_Small.aif */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		44470FCC2A947C4000DFE965 /* Conductor */ = {
+			isa = PBXGroup;
+			children = (
+				44470FCD2A947C5900DFE965 /* MetronomeConductor.swift */,
+				44470FD32A949D1000DFE965 /* SoundConductor.swift */,
+			);
+			path = Conductor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +274,7 @@
 			);
 			name = "Fill-In-Combine";
 			packageProductDependencies = (
+				44470FD92A94F2B800DFE965 /* Starling */,
 			);
 			productName = "Fill-In-Combine";
 			productReference = 44470F542A93385C00DFE965 /* Fill-In-Combine.app */;
@@ -326,6 +349,7 @@
 			);
 			mainGroup = 44470F4B2A93385C00DFE965;
 			packageReferences = (
+				44470FD82A94F2B800DFE965 /* XCRemoteSwiftPackageReference "Starling" */,
 			);
 			productRefGroup = 44470F552A93385C00DFE965 /* Products */;
 			projectDirPath = "";
@@ -345,7 +369,9 @@
 			files = (
 				44470F5F2A93385D00DFE965 /* Preview Assets.xcassets in Resources */,
 				44470FC62A93C0C700DFE965 /* Musiqwik.ttf in Resources */,
+				44470FD22A949C7400DFE965 /* Woodblock_Big.aif in Resources */,
 				44470F5C2A93385D00DFE965 /* Assets.xcassets in Resources */,
+				44470FD12A949C7400DFE965 /* Woodblock_Small.aif in Resources */,
 				44470FCB2A93C9D600DFE965 /* Musisync.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +406,7 @@
 				44470F9D2A93BA4200DFE965 /* LEDIndicator.swift in Sources */,
 				44470FBE2A93BDDB00DFE965 /* TwoParameterControl.swift in Sources */,
 				44470FBA2A93BDDB00DFE965 /* ModWheel.swift in Sources */,
+				44470FD42A949D1000DFE965 /* SoundConductor.swift in Sources */,
 				44470FB92A93BDDB00DFE965 /* SmallKnob.swift in Sources */,
 				44470FB32A93BDDB00DFE965 /* Helpers.swift in Sources */,
 				44470FB62A93BDDB00DFE965 /* PitchWheel.swift in Sources */,
@@ -393,6 +420,7 @@
 				44470FB42A93BDDB00DFE965 /* SingleTouchView.swift in Sources */,
 				44470F582A93385C00DFE965 /* Fill_In_CombineApp.swift in Sources */,
 				44470FC02A93BDDB00DFE965 /* ControlGeometry.swift in Sources */,
+				44470FCE2A947C5900DFE965 /* MetronomeConductor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +749,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		44470FD82A94F2B800DFE965 /* XCRemoteSwiftPackageReference "Starling" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/matthewreagan/Starling";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		44470FD92A94F2B800DFE965 /* Starling */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44470FD82A94F2B800DFE965 /* XCRemoteSwiftPackageReference "Starling" */;
+			productName = Starling;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		44470F622A93385D00DFE965 /* Fill_In_Combine.xcdatamodeld */ = {

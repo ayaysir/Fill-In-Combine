@@ -1,111 +1,21 @@
 {
   "pins" : [
     {
-      "identity" : "graphics",
+      "identity" : "exceptioncatcher",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dn-m/Graphics",
+      "location" : "https://github.com/sindresorhus/ExceptionCatcher.git",
       "state" : {
-        "revision" : "4d15d498a072e0c2ce7964c76c71fc41c6715538",
-        "version" : "0.4.1"
+        "revision" : "a7acaf40f8bd67a1f3a05a14de5b6a861ac3d1ac",
+        "version" : "2.0.1"
       }
     },
     {
-      "identity" : "math",
+      "identity" : "starling",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dn-m/Math",
-      "state" : {
-        "revision" : "519c7e3128e80fbfd43d7cc0c0947b86d423db8a",
-        "version" : "0.8.0"
-      }
-    },
-    {
-      "identity" : "midiparser",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/musical77/MidiParser.git",
+      "location" : "https://github.com/matthewreagan/Starling",
       "state" : {
         "branch" : "master",
-        "revision" : "22a0bbfa0636d1b5d38401254c54c760a7ab847c"
-      }
-    },
-    {
-      "identity" : "music",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dn-m/Music",
-      "state" : {
-        "revision" : "f3fd487603a05c7b7ff20f1e8ad29d866a60fded",
-        "version" : "0.17.1"
-      }
-    },
-    {
-      "identity" : "music-notation",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/music-notation-swift/music-notation",
-      "state" : {
-        "revision" : "ad365e0c993bc4dfd8e524bf9c8ebc9b99baef7e",
-        "version" : "0.2.12"
-      }
-    },
-    {
-      "identity" : "musicscore",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/musical77/MusicScore",
-      "state" : {
-        "branch" : "main",
-        "revision" : "9cc18009963dc4e44e9f9a18b20f26b987ffaf42"
-      }
-    },
-    {
-      "identity" : "musicsymbol",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/musical77/MusicSymbol.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "a7e5c928b52d6b4801cdb8a22993265e5eb220e2"
-      }
-    },
-    {
-      "identity" : "notationmodel",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dn-m/NotationModel",
-      "state" : {
-        "revision" : "a68f1af89ca15c41736e25f17616a4504838073c",
-        "version" : "0.9.0"
-      }
-    },
-    {
-      "identity" : "notationview",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dn-m/NotationView",
-      "state" : {
-        "revision" : "edf1405c78b0b8c5d447164ce831a9adc5785d3f",
-        "version" : "0.1.0"
-      }
-    },
-    {
-      "identity" : "performancetesting",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dn-m/PerformanceTesting",
-      "state" : {
-        "revision" : "7c73a60c4b69b981ac3dd4015cc26cea0e45c8c7",
-        "version" : "0.4.0"
-      }
-    },
-    {
-      "identity" : "structure",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dn-m/Structure",
-      "state" : {
-        "revision" : "34b09ec3d34648a5f409457b7c7ee7bab6ca78bd",
-        "version" : "0.25.0"
-      }
-    },
-    {
-      "identity" : "swxmlhash",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/drmohundro/SWXMLHash",
-      "state" : {
-        "revision" : "f43166a8e18fdd0857f29e303b1bb79a5428bca0",
-        "version" : "4.9.0"
+        "revision" : "c6afad311e81ea2a1de39e7a4b45242200dc90e7"
       }
     }
   ],
