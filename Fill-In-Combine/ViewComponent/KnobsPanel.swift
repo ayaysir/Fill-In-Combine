@@ -15,18 +15,22 @@ struct KnobsPanelValues {
     var masterVolume: Float = 0.3
 }
 
+class KnobsPanelViewModel: ObservableObject {
+    @Published var values = KnobsPanelValues()
+}
+
 struct KnobsPanel: View {
-    @State var values = KnobsPanelValues()
+    @StateObject var viewModel: KnobsPanelViewModel
     
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
-                ArcKnob("|w", value: $values.wholeVolume)
-                ArcKnob("q", value: $values.quarterVolume)
+                ArcKnob("|w", value: $viewModel.values.wholeVolume, range: 0...1)
+                ArcKnob("q", value: $viewModel.values.quarterVolume, range: 0...1)
             }
             HStack(spacing: 0) {
-                ArcKnob("Ee", value: $values.eighthVolume)
-                ArcKnob("MAS", value: $values.masterVolume, useMusisyncFontForLabel: false)
+                ArcKnob("Ee", value: $viewModel.values.eighthVolume, range: 0...1)
+                ArcKnob("MAS", value: .constant(0.5), range: 0...1, useMusisyncFontForLabel: false)
             }
         }.onAppear {
             
@@ -36,6 +40,6 @@ struct KnobsPanel: View {
 
 struct KnobsPanel_Previews: PreviewProvider {
     static var previews: some View {
-        KnobsPanel()
+        KnobsPanel(viewModel: KnobsPanelViewModel())
     }
 }

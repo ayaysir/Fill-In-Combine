@@ -42,6 +42,7 @@ struct ContentView: View {
     
     @State var beatPerBar: Int = 4
     @StateObject var metronomeConductor: MetronomeConductor = MetronomeConductor()
+    @StateObject var knobsPanelViewModel = KnobsPanelViewModel()
     let soundConductor = SoundConductor()
 
     @State var isStart: Bool = false
@@ -61,7 +62,7 @@ struct ContentView: View {
                     .frame(width: 100)
             }
             HStack {
-                KnobsPanel()
+                KnobsPanel(viewModel: knobsPanelViewModel)
                 VStack {
                     Rectangle()
                     Button {
@@ -98,20 +99,23 @@ struct ContentView: View {
                 toggleLEDTurn(true, isWhole: true)
             case .quarter:
                 toggleLEDTurn()
-            case .eighth:
-                break
-            case .none:
+            default:
                 break
             }
         }
         .onChange(of: bpm) { bpm in
             bpmPublisher.send(bpm)
         }
-        .onReceive(bpmPublisher.debounce(for: .milliseconds(500), scheduler: RunLoop.main)) { debouncedBPM in
+        .onReceive(bpmPublisher.debounce(for: .milliseconds(100), scheduler: RunLoop.main)) { debouncedBPM in
             self.bpm = debouncedBPM
             
-            // soundConductor.stopAll()
             metronomeConductor.changeTo(bpm: floor(bpm))
+        }
+        .onReceive(knobsPanelViewModel.$values) { values in
+            print("onReceive:", values)
+            soundConductor.setVolume(.whole, to: values.wholeVolume)
+            soundConductor.setVolume(.quarter, to: values.quarterVolume)
+            soundConductor.setVolume(.eighth, to: values.eighthVolume)
         }
     }
     

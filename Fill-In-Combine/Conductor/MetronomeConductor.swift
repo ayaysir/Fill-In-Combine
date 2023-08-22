@@ -32,6 +32,7 @@ class MetronomeConductor: ObservableObject {
     @Published private(set) var state: MetronomeElement = .none
     private var subscriptions = Set<AnyCancellable>()
     
+    private(set) var isPlaying: Bool = false
     private(set) var bpm: Float
     private(set) var beatPerBar: Int
     private var timerPublisher: Timer.TimerPublisher!
@@ -51,12 +52,7 @@ class MetronomeConductor: ObservableObject {
     }
     
     func start() {
-        DispatchQueue.global().asyncAfter(deadline: .now() + .microseconds(100)) { [weak self] in
-            guard let self else {
-                return
-            }
-        }
-        
+        isPlaying = true
         // 1회는 무조건 처음에 실행해야됨
         state = .whole
         
@@ -86,6 +82,7 @@ class MetronomeConductor: ObservableObject {
     }
     
     func stop() {
+        isPlaying = false
         counterEighth = 0
         state = .none
         subscriptions.forEach { cancellable in
@@ -95,6 +92,7 @@ class MetronomeConductor: ObservableObject {
     
     func changeTo(bpm: Float, beatPerBar: Int? = nil) {
         stop()
+        
         self.bpm = bpm
         
         if let beatPerBar {
@@ -102,7 +100,10 @@ class MetronomeConductor: ObservableObject {
         }
         
         initPublisher()
-        start()
+        
+        if isPlaying {
+            start()
+        }
     }
     
     func setTo(bpm: Float, beatPerBar: Int) {
