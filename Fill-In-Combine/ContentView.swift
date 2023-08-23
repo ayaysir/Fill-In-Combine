@@ -8,28 +8,6 @@
 import SwiftUI
 import Combine
 
-/*
- X:1
- T:
- C:
- %%score ( 1 2 )
- L:1/8
- M:4/4
- Q: 1/4=150
- I:linebreak $
- K:C
- U:n=!style=normal!
- V:1 perc style="x"
- K:none
- V:2 perc
- K:none
- L:1/16
- V:1
- ^a2^g2[c^g]2^g2 ^g2^g2[c^g]2^g2 | ^g2^g2[c^g]2^g2 ^g2^g2[c^g]2^g2 |  ^a2^g2[c^g]2^g2 ^g2^g2[c^g]2^g2 | ncncncnc z nenene nd z ndnd nAnAnAnA |] %2
- V:2
- nF4 nz4 nF4 nz4 |  nF4 nz4 nF4 nz4 |  nF4 nz4 nF4 nz4|] %2
- */
-
 struct ContentView: View {
     
     let primaryLEDColor: Color = .init(red: 1.0, green: 0, blue: 0)
@@ -49,21 +27,22 @@ struct ContentView: View {
     @State var isStart: Bool = false
     @State var isLeftLedOn: Bool = true
     @State var isRightLedOn: Bool = false
-    @State var leftFillColor: Color = .gray
+    @State var leftFillColor: Color = .offIndicator
+    @State var rightFillColor: Color = .offIndicator
     
     var body: some View {
         VStack {
             HStack(alignment: .center, spacing: 0) {
                 LEDIndicator(fillColor: $leftFillColor, isOn: $isLeftLedOn)
-                    .frame(width: 100)
-                    .blur(radius: normalBlurRadius)
+                    .frame(width: 80)
+                    .blur(radius: normalBlurRadius * 3)
                 MusicSheet()
                     .colorInvert()
                     .scaledToFit()
                     .environmentObject(scoresViewModel)
-                LEDIndicator(fillColor: .constant(subLEDColor), isOn: $isRightLedOn)
-                    .frame(width: 100)
-                    .blur(radius: normalBlurRadius)
+                LEDIndicator(fillColor: $rightFillColor, isOn: $isRightLedOn)
+                    .frame(width: 80)
+                    .blur(radius: normalBlurRadius * 3)
             }
             HStack {
                 KnobsPanel(viewModel: knobsPanelViewModel)
@@ -152,16 +131,39 @@ struct ContentView: View {
     
     private func toggleLEDTurn(_ isLeftShouldOn: Bool = false, isWhole: Bool = false) {
         leftFillColor = isWhole ? primaryLEDColor : subLEDColor
+        rightFillColor = subLEDColor
         isLeftLedOn = isLeftShouldOn ? true : !isLeftLedOn
         isRightLedOn = !isLeftLedOn
     }
-    
 }
 
 @available(iOS 15.0, *)
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.landscapeRight)
             .previewDevice("iPad (10th generation)")
     }
 }
+
+/*
+ X:1
+ T:
+ C:
+ %%score ( 1 2 )
+ L:1/8
+ M:4/4
+ Q: 1/4=150
+ I:linebreak $
+ K:C
+ U:n=!style=normal!
+ V:1 perc style="x"
+ K:none
+ V:2 perc
+ K:none
+ L:1/16
+ V:1
+ ^a2^g2[c^g]2^g2 ^g2^g2[c^g]2^g2 | ^g2^g2[c^g]2^g2 ^g2^g2[c^g]2^g2 |  ^a2^g2[c^g]2^g2 ^g2^g2[c^g]2^g2 | ncncncnc z nenene nd z ndnd nAnAnAnA |] %2
+ V:2
+ nF4 nz4 nF4 nz4 |  nF4 nz4 nF4 nz4 |  nF4 nz4 nF4 nz4|] %2
+ */

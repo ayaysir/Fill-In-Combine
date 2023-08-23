@@ -11,21 +11,29 @@ struct LEDIndicator: View {
     @Binding var fillColor: Color
     @Binding var isOn: Bool
     @State private var isFlicked: Bool = false
+    var isOnAndNotFlicked: Bool {
+        return !isFlicked && isOn
+    }
+    @State var isStarted: Bool = false
     
-    private let flickerMillisecond = 50
+    private let flickerMillisecond = 100
     
     var body: some View {
         HStack {
             Spacer()
             VStack(alignment: .center) {
                 Spacer()
-                Circle()
+                RoundedRectangle(cornerSize: .init(width: 20, height: 15))
                     .frame(width: 50, height: 50)
-                    .foregroundColor(isOn && !isFlicked ? fillColor : .gray)
+                    .foregroundColor(isOnAndNotFlicked ? fillColor : .offIndicator)
                     .animation(.linear, value: isFlicked)
                 Spacer()
             }
             .onChange(of: isOn) { isOn in
+                if !isStarted {
+                    isStarted = true
+                }
+                
                 if isOn {
                     DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(flickerMillisecond)) {
                         isFlicked = true
@@ -36,6 +44,7 @@ struct LEDIndicator: View {
             }
             Spacer()
         }
+        .glow(color: (isOnAndNotFlicked ? fillColor : .gray).opacity(isOnAndNotFlicked ? 0.65 : 0.2), radius: 20)
     }
 }
 
