@@ -33,62 +33,75 @@ import Combine
 struct ContentView: View {
     
     let primaryLEDColor: Color = .init(red: 1.0, green: 0, blue: 0)
-    let subLEDColor: Color = .init(red: 0.3, green: 0.1, blue: 0.6)
+    let subLEDColor: Color = .init("sub_indicator")
+    let normalBlurRadius: CGFloat = 0.5
     
-    @State var counter_8beat: Int = 0
     @State var subscriptions = Set<AnyCancellable>()
     @State var bpm: Float = 90.0
     private let bpmPublisher = PassthroughSubject<Float, Never>()
-    
     @State var beatPerBar: Int = 4
-    @StateObject var metronomeConductor: MetronomeConductor = MetronomeConductor()
+    
+    @StateObject var scoresViewModel = ScoresViewModel()
+    @StateObject var metronomeConductor = MetronomeConductor()
     @StateObject var knobsPanelViewModel = KnobsPanelViewModel()
     let soundConductor = SoundConductor()
 
     @State var isStart: Bool = false
     @State var isLeftLedOn: Bool = true
     @State var isRightLedOn: Bool = false
-    @State var leftFillColor: Color = .init(red: 0.3, green: 0.1, blue: 0.6)
+    @State var leftFillColor: Color = .gray
     
     var body: some View {
         VStack {
             HStack(alignment: .center, spacing: 0) {
                 LEDIndicator(fillColor: $leftFillColor, isOn: $isLeftLedOn)
                     .frame(width: 100)
-                    // .animation(.easeInOut(duration: 0.1))
-                Rectangle()
-                    .foregroundColor(.gray)
+                    .blur(radius: normalBlurRadius)
+                MusicSheet()
+                    .colorInvert()
+                    .scaledToFit()
+                    .environmentObject(scoresViewModel)
                 LEDIndicator(fillColor: .constant(subLEDColor), isOn: $isRightLedOn)
                     .frame(width: 100)
+                    .blur(radius: normalBlurRadius)
             }
             HStack {
                 KnobsPanel(viewModel: knobsPanelViewModel)
                 VStack(spacing: 0) {
                     ZStack {
                         Rectangle()
-                            .fill(Color(red: 0.435, green: 0, blue: 1))
+                            .fill(subLEDColor)
+                            .opacity(0.56)
+                            .blur(radius: 2)
                         Text("\(Int(bpm))")
                             .font(.custom(CustomFont.sevenSegement.rawValue, size: 160))
                     }
-                    ZStack {
-                        Rectangle()
-                            .fill(.pink)
-                        Button {
-                            isStart.toggle()
-                        } label: {
-                            Text("Start / Stop")
+                   
+                    Button {
+                        isStart.toggle()
+                    } label: {
+                        ZStack {
+                            Rectangle()
+                                .fill(isStart ? .pink : subLEDColor)
+                                .opacity(0.5)
+                                .blur(radius: 2)
+                            Text(isStart ? "STOP" : "START")
+                                .font(.custom(CustomFont.neoDunggeunmo.rawValue, size: 32))
                         }
-                        .foregroundColor(.white)
+                        
                     }
-                    
+                    .foregroundColor(.white)
                     .frame(height: 50)
                 }
+                
                 ArcKnob("BPM", value: $bpm, range: 40...210, useMusisyncFontForLabel: false)
             }
             .frame(height: 300)
+            // .blur(radius: normalBlurRadius)
         }
         .onAppear {
             metronomeConductor.setTo(bpm: bpm, beatPerBar: beatPerBar)
+            scoresViewModel.getScores()
         }
         .onChange(of: isStart) { isStart in
             if isStart {
@@ -108,6 +121,10 @@ struct ContentView: View {
             switch state {
             case .whole:
                 toggleLEDTurn(true, isWhole: true)
+                // 악보 변경
+                if metronomeConductor.counterEighth % ((beatPerBar * 2) * 2) == 0 {
+                    scoresViewModel.getNewRandomScore()
+                }
             case .quarter:
                 toggleLEDTurn()
             default:
@@ -120,13 +137,16 @@ struct ContentView: View {
         .onReceive(bpmPublisher.debounce(for: .milliseconds(100), scheduler: RunLoop.main)) { debouncedBPM in
             self.bpm = debouncedBPM
             
-            metronomeConductor.changeTo(bpm: floor(bpm))
+            metronomeConductor.changeTo(bpm: floor(bpm), isNeedStart: isStart)
         }
         .onReceive(knobsPanelViewModel.$values) { values in
             // 앱 실행되었을 때도 값을 받아옴
             soundConductor.setVolume(.whole, to: values.wholeVolume)
             soundConductor.setVolume(.quarter, to: values.quarterVolume)
             soundConductor.setVolume(.eighth, to: values.eighthVolume)
+        }
+        .onReceive(scoresViewModel.$scores) { scores in
+            scoresViewModel.getNewRandomScore()
         }
     }
     

@@ -7,8 +7,14 @@
 		<string>7 Segment.ttf</string>
 		<string>Musiqwik.ttf</string>
 		<string>Musisync.ttf</string>
+		<string>NeoDunggeunmoPro-Regular.ttf</string>
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Dark</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

@@ -37,7 +37,7 @@ class MetronomeConductor: ObservableObject {
     private(set) var beatPerBar: Int
     private var timerPublisher: Timer.TimerPublisher!
     
-    private var counterEighth: Int = 0
+    @Published private(set) var counterEighth: Int = 0
     
     init(bpm: Float = 72.0, beatPerBar: Int = 4) {
         self.bpm = bpm
@@ -48,7 +48,7 @@ class MetronomeConductor: ObservableObject {
     
     private func initPublisher() {
         let sleep: Double = Double(60.0 / bpm)
-        self.timerPublisher = Timer.publish(every: sleep / 2.0, tolerance: 0.001, on: .main, in: .default)
+        self.timerPublisher = Timer.publish(every: sleep / 2.0, tolerance: 0.0, on: .main, in: .default)
     }
     
     func start() {
@@ -90,7 +90,7 @@ class MetronomeConductor: ObservableObject {
         }
     }
     
-    func changeTo(bpm: Float, beatPerBar: Int? = nil) {
+    func changeTo(bpm: Float, beatPerBar: Int? = nil, isNeedStart: Bool = false) {
         stop()
         
         self.bpm = bpm
@@ -101,7 +101,7 @@ class MetronomeConductor: ObservableObject {
         
         initPublisher()
         
-        if isPlaying {
+        if isNeedStart {
             start()
         }
     }

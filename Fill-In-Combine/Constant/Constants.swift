@@ -11,6 +11,7 @@ enum CustomFont: String {
     case musiqwik = "Musiqwik"
     case musiSync = "MusiSync"
     case sevenSegement = "Seven Segment"
+    case neoDunggeunmo = "NeoDunggeunmoPro-Regular"
     
     static func viewFontList() {
         for family in UIFont.familyNames {

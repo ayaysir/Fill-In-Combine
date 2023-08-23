@@ -95,8 +95,9 @@ public struct ArcKnob: View {
                     .frame(width: dim(geo) * 0.8)
                     .font(
                         useMusiSyncFontForLabel && !isShowingValue ?
-                            .custom(CustomFont.musiSync.rawValue, size: dim(geo) * 0.4) :
-                            .system(size: dim(geo) * 0.2, weight: .bold)
+                            .custom(CustomFont.musiSync.rawValue, size: dim(geo) * 0.45) :
+                            // .system(size: dim(geo) * 0.2, weight: .bold)
+                            .custom(CustomFont.neoDunggeunmo.rawValue, size: dim(geo) * 0.25)
                         
                     )
                     .foregroundColor(backgroundColor)

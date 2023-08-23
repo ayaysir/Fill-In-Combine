@@ -42,6 +42,27 @@
 		44470FD42A949D1000DFE965 /* SoundConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44470FD32A949D1000DFE965 /* SoundConductor.swift */; };
 		44470FDA2A94F2B800DFE965 /* Starling in Frameworks */ = {isa = PBXBuildFile; productRef = 44470FD92A94F2B800DFE965 /* Starling */; };
 		44470FDC2A94FF2700DFE965 /* 7 Segment.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44470FDB2A94FF2600DFE965 /* 7 Segment.ttf */; };
+		44470FDF2A951CB300DFE965 /* MusicSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44470FDE2A951CB300DFE965 /* MusicSheet.swift */; };
+		44470FF32A95268800DFE965 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FE12A95268600DFE965 /* 9.png */; };
+		44470FF42A95268800DFE965 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FE22A95268700DFE965 /* 4.png */; };
+		44470FF52A95268800DFE965 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FE32A95268700DFE965 /* 11.png */; };
+		44470FF62A95268800DFE965 /* 14.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FE42A95268700DFE965 /* 14.png */; };
+		44470FF72A95268800DFE965 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FE52A95268700DFE965 /* 3.png */; };
+		44470FF82A95268800DFE965 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FE62A95268700DFE965 /* 7.png */; };
+		44470FF92A95268800DFE965 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FE72A95268700DFE965 /* base.png */; };
+		44470FFA2A95268800DFE965 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FE82A95268700DFE965 /* 8.png */; };
+		44470FFB2A95268800DFE965 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FE92A95268700DFE965 /* 2.png */; };
+		44470FFC2A95268800DFE965 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FEA2A95268700DFE965 /* 1.png */; };
+		44470FFD2A95268800DFE965 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FEB2A95268700DFE965 /* 6.png */; };
+		44470FFE2A95268800DFE965 /* 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FEC2A95268700DFE965 /* 13.png */; };
+		44470FFF2A95268800DFE965 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FED2A95268700DFE965 /* 5.png */; };
+		444710002A95268800DFE965 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FEE2A95268700DFE965 /* 15.png */; };
+		444710012A95268800DFE965 /* 16.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FEF2A95268700DFE965 /* 16.png */; };
+		444710022A95268800DFE965 /* 17.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FF02A95268700DFE965 /* 17.png */; };
+		444710032A95268800DFE965 /* 12.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FF12A95268700DFE965 /* 12.png */; };
+		444710042A95268800DFE965 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 44470FF22A95268800DFE965 /* 10.png */; };
+		444710072A959DC500DFE965 /* ScoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444710062A959DC500DFE965 /* ScoresViewModel.swift */; };
+		444710092A95E49F00DFE965 /* NeoDunggeunmoPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 444710082A95E49F00DFE965 /* NeoDunggeunmoPro-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +121,27 @@
 		44470FD02A949C7400DFE965 /* Woodblock_Big.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Woodblock_Big.aif; sourceTree = "<group>"; };
 		44470FD32A949D1000DFE965 /* SoundConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundConductor.swift; sourceTree = "<group>"; };
 		44470FDB2A94FF2600DFE965 /* 7 Segment.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "7 Segment.ttf"; sourceTree = "<group>"; };
+		44470FDE2A951CB300DFE965 /* MusicSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSheet.swift; sourceTree = "<group>"; };
+		44470FE12A95268600DFE965 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		44470FE22A95268700DFE965 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		44470FE32A95268700DFE965 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
+		44470FE42A95268700DFE965 /* 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 14.png; sourceTree = "<group>"; };
+		44470FE52A95268700DFE965 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		44470FE62A95268700DFE965 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		44470FE72A95268700DFE965 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
+		44470FE82A95268700DFE965 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		44470FE92A95268700DFE965 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		44470FEA2A95268700DFE965 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		44470FEB2A95268700DFE965 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		44470FEC2A95268700DFE965 /* 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 13.png; sourceTree = "<group>"; };
+		44470FED2A95268700DFE965 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		44470FEE2A95268700DFE965 /* 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15.png; sourceTree = "<group>"; };
+		44470FEF2A95268700DFE965 /* 16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16.png; sourceTree = "<group>"; };
+		44470FF02A95268700DFE965 /* 17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 17.png; sourceTree = "<group>"; };
+		44470FF12A95268700DFE965 /* 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 12.png; sourceTree = "<group>"; };
+		44470FF22A95268800DFE965 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		444710062A959DC500DFE965 /* ScoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewModel.swift; sourceTree = "<group>"; };
+		444710082A95E49F00DFE965 /* NeoDunggeunmoPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoDunggeunmoPro-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +193,9 @@
 		44470F562A93385C00DFE965 /* Fill-In-Combine */ = {
 			isa = PBXGroup;
 			children = (
+				4447100B2A95E53200DFE965 /* Constant */,
+				444710052A959DB500DFE965 /* ViewModel */,
 				44470FCC2A947C4000DFE965 /* Conductor */,
-				44470FC82A93C1E600DFE965 /* Constants.swift */,
 				44470FC72A93C0FF00DFE965 /* Info.plist */,
 				44470FC42A93C0B700DFE965 /* Resource */,
 				44470FA32A93BDCF00DFE965 /* Controls */,
@@ -204,6 +247,7 @@
 		44470F9B2A93BA0A00DFE965 /* ViewComponent */ = {
 			isa = PBXGroup;
 			children = (
+				44470FDD2A951C9200DFE965 /* MusicSheet */,
 				44470F9C2A93BA4200DFE965 /* LEDIndicator.swift */,
 				44470FC22A93BF7F00DFE965 /* KnobsPanel.swift */,
 			);
@@ -242,9 +286,8 @@
 		44470FC42A93C0B700DFE965 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				44470FC52A93C0C700DFE965 /* Musiqwik.ttf */,
-				44470FCA2A93C81400DFE965 /* Musisync.ttf */,
-				44470FDB2A94FF2600DFE965 /* 7 Segment.ttf */,
+				4447100A2A95E4A600DFE965 /* Font */,
+				44470FE02A95267200DFE965 /* Example Score */,
 				44470FD02A949C7400DFE965 /* Woodblock_Big.aif */,
 				44470FCF2A949C7400DFE965 /* Woodblock_Small.aif */,
 			);
@@ -258,6 +301,66 @@
 				44470FD32A949D1000DFE965 /* SoundConductor.swift */,
 			);
 			path = Conductor;
+			sourceTree = "<group>";
+		};
+		44470FDD2A951C9200DFE965 /* MusicSheet */ = {
+			isa = PBXGroup;
+			children = (
+				44470FDE2A951CB300DFE965 /* MusicSheet.swift */,
+			);
+			path = MusicSheet;
+			sourceTree = "<group>";
+		};
+		44470FE02A95267200DFE965 /* Example Score */ = {
+			isa = PBXGroup;
+			children = (
+				44470FEA2A95268700DFE965 /* 1.png */,
+				44470FE92A95268700DFE965 /* 2.png */,
+				44470FE52A95268700DFE965 /* 3.png */,
+				44470FE22A95268700DFE965 /* 4.png */,
+				44470FED2A95268700DFE965 /* 5.png */,
+				44470FEB2A95268700DFE965 /* 6.png */,
+				44470FE62A95268700DFE965 /* 7.png */,
+				44470FE82A95268700DFE965 /* 8.png */,
+				44470FE12A95268600DFE965 /* 9.png */,
+				44470FF22A95268800DFE965 /* 10.png */,
+				44470FE32A95268700DFE965 /* 11.png */,
+				44470FF12A95268700DFE965 /* 12.png */,
+				44470FEC2A95268700DFE965 /* 13.png */,
+				44470FE42A95268700DFE965 /* 14.png */,
+				44470FEE2A95268700DFE965 /* 15.png */,
+				44470FEF2A95268700DFE965 /* 16.png */,
+				44470FF02A95268700DFE965 /* 17.png */,
+				44470FE72A95268700DFE965 /* base.png */,
+			);
+			path = "Example Score";
+			sourceTree = "<group>";
+		};
+		444710052A959DB500DFE965 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				444710062A959DC500DFE965 /* ScoresViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4447100A2A95E4A600DFE965 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				44470FC52A93C0C700DFE965 /* Musiqwik.ttf */,
+				44470FCA2A93C81400DFE965 /* Musisync.ttf */,
+				444710082A95E49F00DFE965 /* NeoDunggeunmoPro-Regular.ttf */,
+				44470FDB2A94FF2600DFE965 /* 7 Segment.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		4447100B2A95E53200DFE965 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				44470FC82A93C1E600DFE965 /* Constants.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,10 +473,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				444710042A95268800DFE965 /* 10.png in Resources */,
+				444710002A95268800DFE965 /* 15.png in Resources */,
+				44470FFA2A95268800DFE965 /* 8.png in Resources */,
+				44470FFF2A95268800DFE965 /* 5.png in Resources */,
+				44470FFC2A95268800DFE965 /* 1.png in Resources */,
+				44470FF42A95268800DFE965 /* 4.png in Resources */,
+				444710022A95268800DFE965 /* 17.png in Resources */,
+				44470FF82A95268800DFE965 /* 7.png in Resources */,
 				44470F5F2A93385D00DFE965 /* Preview Assets.xcassets in Resources */,
+				44470FF62A95268800DFE965 /* 14.png in Resources */,
+				44470FF72A95268800DFE965 /* 3.png in Resources */,
+				44470FF32A95268800DFE965 /* 9.png in Resources */,
+				44470FF92A95268800DFE965 /* base.png in Resources */,
+				444710032A95268800DFE965 /* 12.png in Resources */,
+				44470FFE2A95268800DFE965 /* 13.png in Resources */,
+				444710092A95E49F00DFE965 /* NeoDunggeunmoPro-Regular.ttf in Resources */,
 				44470FC62A93C0C700DFE965 /* Musiqwik.ttf in Resources */,
 				44470FD22A949C7400DFE965 /* Woodblock_Big.aif in Resources */,
+				44470FFB2A95268800DFE965 /* 2.png in Resources */,
+				44470FFD2A95268800DFE965 /* 6.png in Resources */,
+				44470FF52A95268800DFE965 /* 11.png in Resources */,
 				44470F5C2A93385D00DFE965 /* Assets.xcassets in Resources */,
+				444710012A95268800DFE965 /* 16.png in Resources */,
 				44470FDC2A94FF2700DFE965 /* 7 Segment.ttf in Resources */,
 				44470FD12A949C7400DFE965 /* Woodblock_Small.aif in Resources */,
 				44470FCB2A93C9D600DFE965 /* Musisync.ttf in Resources */,
@@ -404,6 +526,7 @@
 				44470FB82A93BDDB00DFE965 /* Ribbon.swift in Sources */,
 				44470FC92A93C1E600DFE965 /* Constants.swift in Sources */,
 				44470F612A93385D00DFE965 /* Persistence.swift in Sources */,
+				444710072A959DC500DFE965 /* ScoresViewModel.swift in Sources */,
 				44470FBC2A93BDDB00DFE965 /* ArcKnob.swift in Sources */,
 				44470FB72A93BDDB00DFE965 /* IndexedSlider.swift in Sources */,
 				44470FBD2A93BDDB00DFE965 /* Control.swift in Sources */,
@@ -417,6 +540,7 @@
 				44470FBB2A93BDDB00DFE965 /* Joystick.swift in Sources */,
 				44470FBF2A93BDDB00DFE965 /* PlanarGeometry.swift in Sources */,
 				44470FC32A93BF7F00DFE965 /* KnobsPanel.swift in Sources */,
+				44470FDF2A951CB300DFE965 /* MusicSheet.swift in Sources */,
 				44470F8D2A933C8300DFE965 /* ContentView.swift in Sources */,
 				44470F642A93385D00DFE965 /* Fill_In_Combine.xcdatamodeld in Sources */,
 				44470FB52A93BDDB00DFE965 /* XYPad.swift in Sources */,
